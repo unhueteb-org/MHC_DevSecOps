@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26228.9
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28809.33
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{57584487-3A55-47C2-9FA5-5C62BF8D87ED}"
 EndProject
@@ -18,6 +18,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyHealth.Web", "src\MyHealth.Web\MyHealth.Web.csproj", "{11E2D7CC-1221-4E5C-9A4E-2653AE455ED4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyHealth.API.IntegrationTests", "test\MyHealth.API.IntegrationTests\MyHealth.API.IntegrationTests.csproj", "{E150AB03-F223-4880-B248-90917C387899}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{7E8CBE69-F359-48D6-BF57-42A0D6E9826E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{E150AB03-F223-4880-B248-90917C387899}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E150AB03-F223-4880-B248-90917C387899}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E150AB03-F223-4880-B248-90917C387899}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E8CBE69-F359-48D6-BF57-42A0D6E9826E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E8CBE69-F359-48D6-BF57-42A0D6E9826E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E8CBE69-F359-48D6-BF57-42A0D6E9826E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E8CBE69-F359-48D6-BF57-42A0D6E9826E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,5 +61,8 @@ Global
 		{42137795-6EFB-41C8-9CDD-96E5FF3C5B6E} = {57584487-3A55-47C2-9FA5-5C62BF8D87ED}
 		{11E2D7CC-1221-4E5C-9A4E-2653AE455ED4} = {57584487-3A55-47C2-9FA5-5C62BF8D87ED}
 		{E150AB03-F223-4880-B248-90917C387899} = {F1E42E5B-586D-453B-A7D8-05D6E647C3D9}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {41A931C1-4325-4F94-8F7A-A000EEA2AAAC}
 	EndGlobalSection
 EndGlobal
