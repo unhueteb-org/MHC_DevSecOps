@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   myhealth.web:
-    image: ${DOCKER_REGISTRY-}myhealthweb
+    image: myhealth.web
     build:
-      context: .
-      dockerfile: src/MyHealth.Web/Dockerfile
+      context: ./src/MyHealth.Web
+      dockerfile: Dockerfile
