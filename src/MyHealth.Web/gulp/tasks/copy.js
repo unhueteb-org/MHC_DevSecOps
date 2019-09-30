@@ -2,8 +2,8 @@
 
 module.exports = function (gulp) {
     gulp.task('copy:img', function () {
-        gulp.src(paths.source.images).
-            pipe(gulp.dest(paths.dest.images));
+        gulp.src([mainBowerFiles('**/*.png'), mainBowerFiles('**/*.jpg')])
+            .pipe(gulp.dest(paths.dest.images));
     });
 
     gulp.task('copy:favicon', function () {

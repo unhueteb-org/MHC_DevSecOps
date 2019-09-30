@@ -21,3 +21,5 @@
 **/bin/
 **/Debug/
 
+/src/MyHealth.Web/node_modules
+/test/MyHealth.LoadTests/obj/Release
