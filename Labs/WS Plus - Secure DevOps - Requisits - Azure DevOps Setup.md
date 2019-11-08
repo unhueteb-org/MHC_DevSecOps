@@ -53,7 +53,7 @@ In this pre-work module (lab 2 of 2) you will setup your `Azure DevOps` environm
     ![](images/27aName.JPG)
     ![](images/27bName.JPG)
 
-4. Create a `Public` project callaed `SecDevOpsLab` and click `+ Create project`  
+4. Create a `Public` project called `SecDevOpsLab` and click `+ Create project`  
     ![](images/27cName.JPG)
 
 
