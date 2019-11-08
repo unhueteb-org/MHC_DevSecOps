@@ -6,6 +6,9 @@ $rgname = "akshandsonlab-" + $unicstr + "-rg"
 $acrname = "devsecops" + $unicstr + "acr"
 $sqlsvname =  "devsecops" + $unicstr + "db"
 
+# Register the network provider
+az provider register --namespace Microsoft.Network
+
 # Create a ressource groupe
 az group create --name akshandsonlab-$unicstr-rg --location eastus
 Write-Host 'Ressource groupe : $($rgname) created '
