@@ -14,7 +14,8 @@ az group create --name akshandsonlab-$unicstr-rg --location eastus
 Write-Host 'Ressource groupe : $($rgname) created '
 
 # Create AKS Service
-az aks create --resource-group $rgname --name $aksname --enable-addons monitoring --kubernetes-version $version --generate-ssh-keys --location eastus
+#az aks create --resource-group $rgname --name $aksname --enable-addons monitoring --kubernetes-version $version --generate-ssh-keys --location eastus
+az aks create --resource-group $rgname --name $aksname --enable-addons monitoring --kubernetes-version 1.12.7 --generate-ssh-keys --location eastus
 Write-Host 'Azure Kubernetes Service : $($aksname) created '
 
 # Create ACR service

@@ -94,10 +94,11 @@ In this pre-work module (lab 2 of 2) you will setup your `Azure DevOps` environm
 
     ![](images/29dmarketplace.JPG)  
 
-5. Repeat for `Secure DevOps Kit (AzSK) CICD Extensions for Azure` and `WhiteSource Bolt`
+5. Repeat for `Secure DevOps Kit (AzSK) CICD Extensions for Azure`, `WhiteSource Bolt` and `SonarCloud`
 
-    ![](images/29gmarketplace.JPG)  
+    ![](images/29gmarketplace.JPG) 
     ![](images/29imarketplace.JPG)
+    ![](images/291cmarketplace.png)
 
 
 ## Create the Infrastructure in Azure
