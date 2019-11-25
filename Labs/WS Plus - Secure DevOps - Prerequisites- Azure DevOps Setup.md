@@ -53,66 +53,23 @@ In this pre-work module (lab 2 of 2) you will setup your `Azure DevOps` environm
 3. Navigate to https://azuredevopsdemogenerator.azurewebsites.net/ and Sign in with your new Account and Accept Terms
     ![](images/CreateDevOpsAcc02.png)
 
-4. Select your Organization and in the ``New Project Name`` type `SecDevOpsLab` and click `Choose template`  
+4. Click `Choose template` and choose the following file and click ``Submit`` 
+    https://dev.azure.com/secureDevOpsDelivery/82dd0a19-ef30-4974-837a-b876e341813a/_apis/git/repositories/42215aa8-8ad3-4dbc-bd08-29ffc8c37e90/Items?path=%2FSecDevOpsLab.zip
+    
+   ![](images/CreateDevOpsAcc04.png)
+
+5. Select your Organization and in the ``New Project Name`` type `SecDevOpsLab`, Verify extentions missing on this project as showed in the example
     ![](images/CreateDevOpsAcc03.png)
+    **Example** ``Verify missing extentions`` **Replace Tokens**
+    a) Click on the missing extention and ``Get it Free``
+        ![](images/CreateDevOpsAcc05.png)
+    b) Select your organization and click ``Install``
+        ![](images/CreateDevOpsAcc06.png)
+6. Click ``Create Project`` and wait until the end of the process and click ``Navigate to project``
+    ![](images/CreateDevOpsAcc07.png)
 
-## Create an Azure DevOps organization and project
-1. Navigate to https://dev.azure.com/ login with your Microsoft account and Select `Create new organization`
-
-2. Check checkbox and click `Continue`  
-    ![](images/26GetStarted.JPG)
-
-3. Name your organization `SecDevOps-NNNN` where NNNN is an random unique number . Select `US East`.  
-    ![](images/27aName.JPG)
-    ![](images/27bName.JPG)
-
-4. Create a `Public` project called `SecDevOpsLab` and click `+ Create project`  
-    ![](images/27cName.JPG)
-
-
-## Import (Clone) the repository
-
-1. Click on the created project and navigate to `Repos` (on left side)
-    
-    ![](images/28aImport.JPG)
-
-2. Click on `Import` button
-    
-    ![](images/28bImport.JPG)
-
-3. Import the repo by pasting the below URL into the `Clone URL` field.  
-    
-    https://dev.azure.com/secureDevOpsDelivery/_git/MyHealthClinicSecDevOps-Public
-    ![](images/28cImport.JPG)
-    ![](images/28dImport.JPG)
-
-4. Finally Download the imported project to your VM and Extract the Zip File
+7. Finally Download the imported project to your VM and Extract the Zip File
     ![](images/Req-Clone-Source.png)
-
-
-## Install DevOps extensions from Marketplace 
-1. Navigate to market place (small shoping bag icon on upper right side)  
-
-    ![](images/29amarketplace.JPG)  
-    ![](images/29bmarketplace.JPG)  
-
-2. Install `Replace Tokens`  
-
-    ![](images/29cmarketplace.JPG)  
-3. `Get it free`  
- 
-    ![](images/29-0marketplace.JPG)  
-
-4. Follow default instructions
-
-    ![](images/29dmarketplace.JPG)  
-
-5. Repeat for `Secure DevOps Kit (AzSK) CICD Extensions for Azure`, `WhiteSource Bolt` and `SonarCloud`
-
-    ![](images/29gmarketplace.JPG) 
-    ![](images/29imarketplace.JPG)
-    ![](images/291cmarketplace.png)
-
 
 ## Create the Infrastructure in Azure
 
