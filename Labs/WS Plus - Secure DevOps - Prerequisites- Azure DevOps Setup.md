@@ -43,6 +43,19 @@ In this pre-work module (lab 2 of 2) you will setup your `Azure DevOps` environm
 
 [[_TOC_]]
 
+## Create an Azure DevOps
+1. Navigate to https://dev.azure.com/ Click ``Start Free``
+    ![](images/CreateDevOpsAcc00.png)
+
+2. Login with your new Microsoft account and Select `Continue`
+    ![](images/CreateDevOpsAcc01.png)
+
+3. Navigate to https://azuredevopsdemogenerator.azurewebsites.net/ and Sign in with your new Account and Accept Terms
+    ![](images/CreateDevOpsAcc02.png)
+
+4. Select your Organization and in the ``New Project Name`` type `SecDevOpsLab` and click `Choose template`  
+    ![](images/CreateDevOpsAcc03.png)
+
 ## Create an Azure DevOps organization and project
 1. Navigate to https://dev.azure.com/ login with your Microsoft account and Select `Create new organization`
 
