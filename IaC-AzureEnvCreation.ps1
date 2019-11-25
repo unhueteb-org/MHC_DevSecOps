@@ -13,11 +13,13 @@ az provider register --namespace Microsoft.Network
 
 # Create a ressource groupe
 az group create --name $rgname --location eastus
-Write-Host 'Ressource groupe : ' + $acrname + ' created '
+Write-Host 'Ressource groupe : ' + $rgname + ' created '
+
+az ad sp create-for-rbac --name $aksname
 
 # Create AKS Service
 az aks create --resource-group $rgname --name $aksname --enable-addons monitoring --kubernetes-version 1.12.7 --generate-ssh-keys --location eastus
-Write-Host 'Azure Kubernetes Service : ' + $acrname + ' created '
+Write-Host 'Azure Kubernetes Service : ' + $aksname + ' created '
 
 # Create ACR service
 az acr create --resource-group $rgname --name $acrname --sku Standard --location eastus
