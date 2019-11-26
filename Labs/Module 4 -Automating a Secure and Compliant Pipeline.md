@@ -293,6 +293,8 @@ Completion of the Module 1 Lab, Creating a DevOps Pipeline
 
     ![Run AutoFix](./images/Module4-RemediationAutoFixRun.png)
 
+> (Optional maybe not work, preview features)
+
 10. To run these scripts read the instructions in
     the ``README.txt`` file.
 
