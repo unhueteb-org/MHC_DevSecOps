@@ -235,7 +235,7 @@ Completion of the Module 1 Lab, Creating a DevOps Pipeline
 
     ![Az Configured](./images/Module4-AzSKConfigured.png)
 
-    > Note: In order to generate the **Autofix scripts** which are useful for Remediation include the ExtendedCommand variable in the pipeline with the switch -GenerateFixScript. To do this, select the ``Variables`` section under the release definition and add the ``ExtendedCommand`` variable with the switch ``-GenerateFixScript`` as value.
+    > Note: In order to generate the **Autofix scripts** which are useful for Remediation include the ExtendedCommand variable in the pipeline with the switch -GenerateFixScript. To do this, select the ``Variables`` section under the release definition and add the ``ExtendedCommand`` variable with the switch ``  -GenerateFixScript`` as value.
 
 5.  From the ``Variables`` section under the release definition, verify
     that the ``ACR`` and ``SQLserver`` variables are set.
