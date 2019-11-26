@@ -139,9 +139,7 @@ eventually publish artifacts for the Release Pipeline to consume.
     from the local Cloned Repo and import the definition.
 
 6.  Once imported, Azure DevOps will present you with the definition
-    editing screen. ``Make sure you remove the trailing -Import from
-    your build definition. Build definition should be named
-    MyHealth.AKS.build.``
+    editing screen. ``Make sure you remove the trailing -Import from your build definition. Build definition should be named MyHealth.AKS.build.``
 
     ![](./Images/Module1-NewImportBuildPipelineImported.png)
 
@@ -170,9 +168,7 @@ eventually publish artifacts for the Release Pipeline to consume.
     > Tip: If your subscription is not listed or to specify an existing service principal, follow the Service Principal creation instructions in the Prerequisites document.
 
 
-9.  Repeat the selection of the same values from the dropdown ``Azure
-    subscription`` and ``Azure Container Registry`` for the ``Build
-    services``, ``Push services`` and ``Lock services`` as shown below.
+9.  Repeat the selection of the same values from the dropdown ``Azure subscription`` and ``Azure Container Registry`` for the ``Build services``, ``Push services`` and ``Lock services`` as shown below.
 
     ![](./Images/Module1-SelectSubscriptionOtherServices.png)
 
@@ -189,8 +185,7 @@ eventually publish artifacts for the Release Pipeline to consume.
       |Lock Services                     |   Docker provides a way to lock container images. Once it is locked, nobody can delete it unknowingly, even if they try it shows an error.|
 
 11. Click on the ``Variables`` tab and
-    update ``ACR`` and ``SQLserver`` values for ``Pipeline
-    Variables`` with the details noted earlier while configuring the
+    update ``ACR`` and ``SQLserver`` values for ``Pipeline Variables`` with the details noted earlier while configuring the
     environment. Select the ``Save`` button and Select ``Save`` button
     in the Save Build Pipeline dialog.
 
@@ -245,9 +240,7 @@ triggered soon after the build completes successfully.
     ![](./Images/Module1-NewImportReleasePipelineConfigureTask.png)
 
 5.  In the ``Dev`` stage, under the ``DB deployment`` phase, click on
-    the ``Execute Azure SQL: DacpacTask`` task. Under ``Azure Service
-    Connection Type``, select from the drop down ``Azure Resource
-    Manager``. Under ``Azure Subscription``, select your Azure
+    the ``Execute Azure SQL: DacpacTask`` task. Under ``Azure Service Connection Type``, select from the drop down ``Azure Resource Manager``. Under ``Azure Subscription``, select your Azure
     subscription.
 
 6.  Under the AKS deployment phase, for the Create Deployments &
@@ -329,15 +322,13 @@ balancer in the front-end and Redis cache in the back-end.
 
     ![](./Images/Module1-NewImportBuildPipelineImportedQueueRelease.png)
 
-2.  Once the build process starts, click on the link ``Updated
-    appsettings.json`` to see the build in progress.
+2.  Once the build process starts, click on the link ``Updated appsettings.json`` to see the build in progress.
 
     ![](./Images/Module1-NewImportBuildPipelineImportedResultsRelease.png)
 
 3.  The build will generate and push the docker image to ACR. After the
     build is completed, you will see the build summary. To view the
-    generated images in the Azure Portal, select the ``Azure Container
-    Registry`` and navigate to the ``Repositories``.
+    generated images in the Azure Portal, select the ``Azure Container Registry`` and navigate to the ``Repositories``.
 
     ![](./Images/Module1-AzureResultDeployContainer.png)
 
@@ -359,8 +350,7 @@ balancer in the front-end and Redis cache in the back-end.
         ![](./Images/Module1-AzureResultAKSSetup.png)
 
     b.  Type ``az account show`` to see the active subscription you are
-        connected to. If it is not the right one, type ``az account set
-        \--subscription \[name or id\]``, replacing name or id with the
+        connected to. If it is not the right one, type ``az account set --subscription [name or id\]``, replacing name or id with the
         one for the right subscription, which you can find in the list
         generated when running the command ``az login`` above.
 
