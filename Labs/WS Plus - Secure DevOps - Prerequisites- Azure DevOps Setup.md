@@ -82,6 +82,26 @@ In this pre-work module (lab 2 of 2) you will setup your `Azure DevOps` environm
 8. Finally Download the imported project to your VM and Extract the Zip File
     ![](images/Req-Clone-Source.png)
 
+## Get you free Azure Subscription
+
+1. Navigate to http://aka.ms/azurepass and use the Promo code located in your VM
+    ![](images/CreateAzurePass02.png)
+    ![](images/CreateAzurePass01.png)
+    
+    Click Claim
+    ![](images/CreateAzurePass03.png)
+
+2. Fill all fields and click Next
+    ![](images/CreateAzurePass04.png)
+
+3. Accept the terms and click ``Sign up``
+    ![](images/CreateAzurePass05.png)
+  
+> Attention
+> 
+> **This process will take about 15 minutes, don't refresh your screen!**
+> ---
+    
 ## Create the Infrastructure in Azure
 
 1. Navigate to http://portal.azure.com open the shell command and create a storage using powershell
@@ -94,8 +114,14 @@ In this pre-work module (lab 2 of 2) you will setup your `Azure DevOps` environm
     ![](images/Pre-ShellUploadFileSelectFile.png)
 
 4. Type CD in command prompt and hit enter
+
 5. type ./IaC-AzureEnvCreation.ps1 and hit enter
     ![](images/Pre-ShellRunScript.png)
+
+> Attention
+> 
+> **This process will take about 15 minutes, don't refresh your screen!**
+
 6. Take note of the resource names when the script end his execution
     ![](images/Pre-ShellRunScriptResult.png)
 
