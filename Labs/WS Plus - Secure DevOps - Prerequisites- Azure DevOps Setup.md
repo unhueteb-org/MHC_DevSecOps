@@ -68,7 +68,18 @@ In this pre-work module (lab 2 of 2) you will setup your `Azure DevOps` environm
 6. Click ``Create Project`` and wait until the end of the process and click ``Navigate to project``
     ![](images/CreateDevOpsAcc07.png)
 
-7. Finally Download the imported project to your VM and Extract the Zip File
+7. Import de source code to your project
+    ![](images/CreateDevOpsAcc08.png)
+
+    In the ``Clone URL *`` paste the following URL:
+    
+    https://SecureDevOpsDelivery@dev.azure.com/SecureDevOpsDelivery/MyHealthClinicSecDevOps-Public/_git/MyHealthClinicSecDevOps-Public
+    
+    In the name type ``MyHealthClinicSecDevOps-Public``
+    
+    ![](images/CreateDevOpsAcc09.png)
+
+8. Finally Download the imported project to your VM and Extract the Zip File
     ![](images/Req-Clone-Source.png)
 
 ## Create the Infrastructure in Azure
