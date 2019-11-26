@@ -229,8 +229,7 @@ triggered soon after the build completes successfully.
     ``Source``, ``Default version`` should be ``Latest`` and Source
     Alias should be ``MyHealth.AKS.build``. If you have another Artifact
     that gives you an error about project access, please delete. Make
-    sure that the agents selected for each task is a ``Hosted Agents``
-    ``(windows 2019)``.
+    sure that the agents selected for each task is a ``Hosted Agents (windows 2019)``.
 
     ![](./Images/Module1-NewImportReleasePipelineSelectHost.png)
 
@@ -256,10 +255,9 @@ triggered soon after the build completes successfully.
     d.  Expand the Secrets section and update the parameters for Azure
         subscription from the dropdown.
 
-        Click on the Update image in AKS task and repeat the same steps
-        as above.
+ Click on the Update image in AKS task and repeat the same steps as above.
 
-        ![](./Images/Module1-NewImportBuildPipelineImportedConfigAKS.png)
+![](./Images/Module1-NewImportBuildPipelineImportedConfigAKS.png)
 
 7.  Expand the ``Secrets`` area and use the following values for your
     ``Secrets`` section ``except for the Azure Container Registry``.
@@ -347,7 +345,7 @@ balancer in the front-end and Redis cache in the back-end.
         prompt and press Enter. Authenticate yourself by entering your
         credentials in the web browser that automatically opens up.
 
-        ![](./Images/Module1-AzureResultAKSSetup.png)
+    ![](./Images/Module1-AzureResultAKSSetup.png)
 
     b.  Type ``az account show`` to see the active subscription you are
         connected to. If it is not the right one, type ``az account set --subscription [name or id\]``, replacing name or id with the
@@ -359,17 +357,16 @@ balancer in the front-end and Redis cache in the back-end.
         variables ``yourResourceGroup`` and ``yourAKSname`` with the
         actual values.
 
-        ![](./Images/Module1-AzureResultAKSSetupGetCredentials.png)
+    ![](./Images/Module1-AzureResultAKSSetupGetCredentials.png)
 
     d.  Type ``kubectl get pods`` to see the pods that are running (if
         the command is not recognized make sure that you set the
         installation folder for kubectl.exe into your environment PATH
         variable):
 
-        ![](./Images/Module1-AzureResultAKSSetupGetPods.png)
+    ![](./Images/Module1-AzureResultAKSSetupGetPods.png)
 
-        The deployed web application is running in the displayed pods.
-        Make sure both ``STATUS`` is \"Running\".
+> The deployed web application is running in the displayed pods. Make sure both ``STATUS`` is \"Running\".
 
 6.  To see what external IP address the application is using, run the
     below command. If you see that ``External-IP`` is pending, wait for
