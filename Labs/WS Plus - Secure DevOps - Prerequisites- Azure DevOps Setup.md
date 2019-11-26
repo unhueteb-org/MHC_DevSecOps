@@ -44,13 +44,16 @@ In this pre-work module (lab 2 of 2) you will setup your `Azure DevOps` environm
 [[_TOC_]]
 
 ## Create an Azure DevOps
-1. Navigate to https://dev.azure.com/ Click ``Start Free``
+1. Navigate to https://dev.azure.com/ Click `Start Free`
+    
     ![](images/CreateDevOpsAcc00.png)
 
 2. Login with your new Microsoft account and Select `Continue`
+    
     ![](images/CreateDevOpsAcc01.png)
 
 3. Navigate to https://azuredevopsdemogenerator.azurewebsites.net/ and Sign in with your new Account and Accept Terms
+    
     ![](images/CreateDevOpsAcc02.png)
 
 4. Click `Choose template` and choose the following file and click ``Submit`` 
@@ -59,16 +62,25 @@ In this pre-work module (lab 2 of 2) you will setup your `Azure DevOps` environm
    ![](images/CreateDevOpsAcc04.png)
 
 5. Select your Organization and in the ``New Project Name`` type `SecDevOpsLab`, Verify extentions missing on this project as showed in the example
+    
     ![](images/CreateDevOpsAcc03.png)
+
+
     **Example** ``Verify missing extentions`` **Replace Tokens**
     a) Click on the missing extention and ``Get it Free``
+        
         ![](images/CreateDevOpsAcc05.png)
+
     b) Select your organization and click ``Install``
+        
         ![](images/CreateDevOpsAcc06.png)
+
 6. Click ``Create Project`` and wait until the end of the process and click ``Navigate to project``
+    
     ![](images/CreateDevOpsAcc07.png)
 
 7. Import de source code to your project
+    
     ![](images/CreateDevOpsAcc08.png)
 
     In the ``Clone URL *`` paste the following URL:
@@ -80,21 +92,26 @@ In this pre-work module (lab 2 of 2) you will setup your `Azure DevOps` environm
     ![](images/CreateDevOpsAcc09.png)
 
 8. Finally Download the imported project to your VM and Extract the Zip File
+    
     ![](images/Req-Clone-Source.png)
 
 ## Get you free Azure Subscription
 
 1. Navigate to http://aka.ms/azurepass and use the Promo code located in your VM
+    
     ![](images/CreateAzurePass02.png)
     ![](images/CreateAzurePass01.png)
     
     Click Claim
+    
     ![](images/CreateAzurePass03.png)
 
 2. Fill all fields and click Next
+    
     ![](images/CreateAzurePass04.png)
 
 3. Accept the terms and click ``Sign up``
+    
     ![](images/CreateAzurePass05.png)
   
 > Attention
@@ -102,20 +119,26 @@ In this pre-work module (lab 2 of 2) you will setup your `Azure DevOps` environm
 > **This process will take about 15 minutes, don't refresh your screen!**
 > ---
     
+
+
 ## Create the Infrastructure in Azure
 
 1. Navigate to http://portal.azure.com open the shell command and create a storage using powershell
+    
     ![](images/Pre-ShellAzure.png)
 
 2. In powershell mode, select upload file
+    
     ![](images/Pre-ShellUploadFile.png)
 
 3. Select the file ``IaC-AzureEnvCreation.ps1``
+    
     ![](images/Pre-ShellUploadFileSelectFile.png)
 
 4. Type CD in command prompt and hit enter
 
 5. type ./IaC-AzureEnvCreation.ps1 and hit enter
+    
     ![](images/Pre-ShellRunScript.png)
 
 > Attention
@@ -123,5 +146,6 @@ In this pre-work module (lab 2 of 2) you will setup your `Azure DevOps` environm
 > **This process will take about 15 minutes, don't refresh your screen!**
 
 6. Take note of the resource names when the script end his execution
+    
     ![](images/Pre-ShellRunScriptResult.png)
 
