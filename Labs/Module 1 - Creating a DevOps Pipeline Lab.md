@@ -356,7 +356,7 @@ balancer in the front-end and Redis cache in the back-end.
         prompt and press Enter. Authenticate yourself by entering your
         credentials in the web browser that automatically opens up.
 
-    ![](./Images/Module1-AzureResultAKSSetup.png)
+        ![](./Images/Module1-AzureResultAKSSetup.png)
 
     b.  Type ``az account show`` to see the active subscription you are
         connected to. If it is not the right one, type ``az account set
