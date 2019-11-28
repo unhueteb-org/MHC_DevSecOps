@@ -99,10 +99,8 @@ the XXXXX it's Ramdom string created with the Infrastructure**
 ## Challenge Solutions
 
 In case you are getting frustrated with a particular challenge, you can
-refer to the [Challenge solutions](/appendix/solutions.md) appendix
+refer to the [Challenge solutions](appendix/solutions.md) appendix
 where you find explicit instructions how to successfully exploit each
 vulnerability. It is highly recommended to use this option only as a
 last resort. You will learn __a lot more__ from hacking entirely on your
 own or relying only on the hints in this part of the book.
-
-{% endif %}

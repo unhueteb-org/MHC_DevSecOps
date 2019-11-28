@@ -122,7 +122,7 @@ error situation and solve this challenge immediately:
 3. Search for `score` and iterate through each finding to come across
    one that looks like a route mapping section:
 
-   ![Route Mapping the the Score Board](/appendix/img/score-board_route.png)
+   ![Route Mapping the the Score Board](appendix/img/score-board_route.png)
 4. Navigate to https://owaspappXXXXXt10.azurewebsites.net/#/score-board to solve the
    challenge.
 5. From now on you will see the additional menu item _Score Board_ in
@@ -2221,7 +2221,7 @@ totally different attack styles.
    time of this writing - January 2017 - the broadcasted coupon was
    `n<Mibh.u)v` promising a 50% discount.
 
-   ![Coupon Code for January 2017 on @owasp_juiceshop](/appendix/img/coupon_code-january2017.png)
+   ![Coupon Code for January 2017 on @owasp_juiceshop](appendix/img/coupon_code-january2017.png)
 7. Decrypting this code with `z85 -d "n<Mibh.u)v"` returns `JAN17-50`
 8. Encrypt a code valid for the current month with 80% or more discount,
    e.g. `z85 -e JAN17-80` which yields `n<Mibh.v0y`.
@@ -2385,7 +2385,7 @@ opened on those._
    searching for `support`) will yield an interesting log statement that
    is printed when the support logs in with the wrong password:
 
-   ![Support team login hint in minified JS](/appendix/img/minified-js_support-hint.png)
+   ![Support team login hint in minified JS](appendix/img/minified-js_support-hint.png)
 4. The logged text is in Romanian language: `<!-- @echipa de suport:
    Secretul nostru comun este încă Caoimhe cu parola de master gol! -->`
 5. Running this through an online translator yields something like:
