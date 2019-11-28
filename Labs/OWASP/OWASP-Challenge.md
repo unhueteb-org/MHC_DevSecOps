@@ -1,7 +1,7 @@
 # Challenge hunting
 
 **Your web site it's found in the Resource groupe in Azure(https://portal.azure.com), the URL will be like : https://owaspappXXXXXt10.azurewebsites.net/
-the XXXXX it's Ramdom string created with the Infrastructure**
+the XXXXX it's a ramdom string created with the Infrastructure**
 
 | Name                       | Description                                                                                                                                                                             | Hints                                                                                                                                           | Solution                                                                                                                                     |
 |:---------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------|
