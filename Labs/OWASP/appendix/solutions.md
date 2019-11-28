@@ -1,8 +1,8 @@
 # Challenge solutions
 
 All URLs in the challenge solutions assume you are running the
-application locally and on the default port http://localhost:3000.
-Change the URL accordingly if you use a different root URL.
+application in Azure as the sample https://owaspappXXXXXt10.azurewebsites.net.
+Change the XXXXX accordingly with your deploy.
 
 Often there are multiple ways to solve a challenge. In most cases just
 one possible solution is presented here. This is typically the easiest
@@ -640,7 +640,7 @@ logged out but provide any `UserId` in the JSON payload.
 
    ![Hot section in the privacy policy](img/privacy-policy_hot-section.png)
 3. Inspect the HTML in your browser and note down all text inside `<span
-   class="hot">` tags, which are `http://localhost`, `We may also`,
+   class="hot">` tags, which are `https://owaspappXXXXXt10.azurewebsites.net`, `We may also`,
    `instruct you`, `to refuse all`, `reasonably necessary` and
    `responsibility`.
 4. Combine those into the URL
@@ -2598,7 +2598,7 @@ application and looks as follows: `frontend/dist/fron tend /assets/`.
 the prescribed payload of ``</script><script>alert(`xss`)</script>``
 with `zip exploit.zip
 ../../frontend/dist/frontend/assets/public/video/JuiceShopJingle.vtt` (
-on Linux). 16. Upload the ZIP file on <http://localhost:300 0/#/
+on Linux). 16. Upload the ZIP file on <https://owaspappXXXXXt10.azurewebsites.net/#/
 complain>. 17. The challenge notification will not trigger immediately,
 as it requires you to actually execute the payload by visiting
 <https://owaspappXXXXXt10.azurewebsites.net/pro moti on> again. 18. You will see the alert
