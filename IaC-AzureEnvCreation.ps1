@@ -7,47 +7,81 @@ $acrname = "devsecops" + $unicstr + "acr"
 $sqlsvname =  "devsecops" + $unicstr + "db"
 $appServicePlan = "owasp" + $unicstr + "t10"
 $app = "owaspapp" + $unicstr + "t10"
+$repomyclinic = 'MyHealthClinicSecDevOps-Public'
 
-# Register the network provider
-az provider register --namespace Microsoft.Network
+try
+	{
+	#Add DevOps Powershell Extention
+	az extension add --name azure-devops
 
-# Create a ressource groupe
-az group create --name $rgname --location eastus
-Write-Host 'Ressource groupe : ' + $rgname + ' created '
+	Write-Host 'Login in with your new accounr e.g. DevSecOpsYourName@outlook.com'
+	az Login
 
-az ad sp create-for-rbac --name $aksname
+	$devopsproject = Read-Host -Prompt 'Type the name of you project created in your DevOps.'
+	$devopsservice = Read-Host -Prompt 'Type the name of URL DevOps with your organization e.g. : https://dev.azure.com/DevSecOpsBob001, next you will be prompted to enter PAT created in the first part of requisites.'
+	az devops login --organization $devopsservice
+	
+	Write-Host 'Downloading all lab files'
+	Invoke-WebRequest 'https://dev.azure.com/secureDevOpsDelivery/82dd0a19-ef30-4974-837a-b876e341813a/_apis/git/repositories/42215aa8-8ad3-4dbc-bd08-29ffc8c37e90/items?path=%2F&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&resolveLfs=true&%24format=zip&api-version=5.0&download=true' -UseBasicParsing -OutFile .\SourceCodeMyClinic.zip
+	Expand-Archive -LiteralPath .\SourceCodeMyClinic.zip -DestinationPath "c:\MyHealthClinicSecDevOps-Public" -Force
 
-# Create AKS Service
-az aks create --resource-group $rgname --name $aksname --enable-addons monitoring --kubernetes-version 1.12.7 --generate-ssh-keys --location eastus --disable-rbac
-Write-Host 'Azure Kubernetes Service : ' + $aksname + ' created '
+	#Create a Repo for the Labs
+	Write-Host 'Importing labs to your Azure DevOps'
+	az repos create --name $repomyclinic
 
-# Create ACR service
-az acr create --resource-group $rgname --name $acrname --sku Standard --location eastus
-Write-Host 'Azure Container Registry : ' + $acrname + ' created '
+	#Import the repo from Demo Website
+	az repos import create --git-source-url 'https://SecureDevOpsDelivery@dev.azure.com/SecureDevOpsDelivery/MyHealthClinicSecDevOps-Public/_git/MyHealthClinicSecDevOps-Public' --detect true --project $devopsproject --repository $repomyclinic
 
-# Get the id of the service principal configured for AKS
-$CLIENT_ID=(az aks show --resource-group $rgname --name $aksname --query "servicePrincipalProfile.clientId" --output tsv)
+	Write-Host 'Adding security extensions to your Azure DevOps'
+	az devops extension install --extension-id 'AzSDK-task' --publisher-id 'azsdktm' --detect true
+	az devops extension install --extension-id 'SonarCloud' --publisher-id 'SonarSource' --detect true
+	az devops extension install --extension-id 'replacetokens' --publisher-id 'qetza' --detect true
+	az devops extension install --extension-id 'ws-bolt' --publisher-id 'whitesource' --detect true
 
-# Get the ACR registry resource id
-$ACR_ID=(az acr show --name $acrname --resource-group $rgname --query "id" --output tsv)
+	# Register the network provider
+	az provider register --namespace Microsoft.Network
 
-# Create role assignment
-az role assignment create --assignee $CLIENT_ID --role acrpull --scope $ACR_ID
+	# Create a ressource groupe
+	az group create --name $rgname --location eastus
+	Write-Host 'Ressource groupe : ' + $rgname + ' created '
 
-# Create database server
-az sql server create -l eastus -g $rgname -n $sqlsvname -u sqladmin -p P2ssw0rd1234
+	az ad sp create-for-rbac --name $aksname
 
-az sql db create -g $rgname -s $sqlsvname -n mhcdb --service-objective S0
+	# Create AKS Service
+	az aks create --resource-group $rgname --name $aksname --enable-addons monitoring --kubernetes-version 1.12.7 --generate-ssh-keys --location eastus --disable-rbac
+	Write-Host 'Azure Kubernetes Service : ' + $aksname + ' created '
 
-# Create service plan for OWASP top 10
-az appservice plan create -g $rgname -n $appServicePlan --is-linux --number-of-workers 1 --sku B1
+	# Create ACR service
+	az acr create --resource-group $rgname --name $acrname --sku Standard --location eastus
+	Write-Host 'Azure Container Registry : ' + $acrname + ' created '
 
-# Create service WebApp for OWASP top 10
-az webapp create --resource-group $rgname --plan $appServicePlan --name $app --deployment-container-image-name bkimminich/juice-shop
+	# Get the id of the service principal configured for AKS
+	$CLIENT_ID=(az aks show --resource-group $rgname --name $aksname --query "servicePrincipalProfile.clientId" --output tsv)
 
-Write-Host "======================================================================================================`n
-Please take note of the following ressource names, they will be used in the next steps `n
-======================================================================================================
-            Azure Container Registry name : $($acrname).azurecr.io `n
-            SQL Server name : $($sqlsvname).database.windows.net `n
-            Azure Kubernetes Services name : $($aksname) `n"
+	# Get the ACR registry resource id
+	$ACR_ID=(az acr show --name $acrname --resource-group $rgname --query "id" --output tsv)
+
+	# Create role assignment
+	az role assignment create --assignee $CLIENT_ID --role acrpull --scope $ACR_ID
+
+	# Create database server
+	az sql server create -l eastus -g $rgname -n $sqlsvname -u sqladmin -p P2ssw0rd1234
+
+	az sql db create -g $rgname -s $sqlsvname -n mhcdb --service-objective S0
+
+	# Create service plan for OWASP top 10
+	az appservice plan create -g $rgname -n $appServicePlan --is-linux --number-of-workers 1 --sku B1
+
+	# Create service WebApp for OWASP top 10
+	az webapp create --resource-group $rgname --plan $appServicePlan --name $app --deployment-container-image-name bkimminich/juice-shop
+
+	Write-Host "======================================================================================================`n
+	Please take note of the following ressource names, they will be used in the next steps `n
+	======================================================================================================
+				Azure Container Registry name : $($acrname).azurecr.io `n
+				SQL Server name : $($sqlsvname).database.windows.net `n
+				Azure Kubernetes Services name : $($aksname) `n"
+}
+catch{
+    Write-Host $error[0].Exception
+}
