@@ -103,15 +103,15 @@ In this pre-work module (lab 2 of 2) you will setup your `Azure DevOps` environm
 
 1. Run de following commands inside the VM on PowerShell:
     
-    >Invoke-WebRequest 'https://aka.ms/DevSecOpsSetupFile' -UseBasicParsing -OutFile .\Setupfile.ps1
-    
     For the following command answer with A for `[A] Yes to All`
 
     >  Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser  
-    
+
+    >Invoke-WebRequest 'https://aka.ms/DevSecOpsSetupFile' -UseBasicParsing -OutFile .\IaC-AzureEnvCreation.ps1
+        
     Type the following command and hit `Enter` follow the instructions.
 
-    >.\Setupfile.ps1
+    >.\IaC-AzureEnvCreation.ps1
 
     **Keep the following information in a notepad, you will be asked for those values in the executing script.**
 
@@ -121,6 +121,13 @@ In this pre-work module (lab 2 of 2) you will setup your `Azure DevOps` environm
 
     ![](images/CreateDevOpsAcc15.png)
 
+
+
+
+
+
+
+---
     In the ``Clone URL *`` paste the following URL:
     
     https://SecureDevOpsDelivery@dev.azure.com/SecureDevOpsDelivery/MyHealthClinicSecDevOps-Public/_git/MyHealthClinicSecDevOps-Public
