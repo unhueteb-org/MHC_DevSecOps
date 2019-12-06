@@ -121,48 +121,12 @@ In this pre-work module (lab 2 of 2) you will setup your `Azure DevOps` environm
 
     ![](images/CreateDevOpsAcc15.png)
 
+    **The script will take about 15 minutes to execute.**
 
+    ![](images/CreateDevOpsAcc16.png)
 
-
-
-
-
----
-    In the ``Clone URL *`` paste the following URL:
-    
-    https://SecureDevOpsDelivery@dev.azure.com/SecureDevOpsDelivery/MyHealthClinicSecDevOps-Public/_git/MyHealthClinicSecDevOps-Public
-    
-    In the name type ``MyHealthClinicSecDevOps-Public``
-    
-    ![](images/CreateDevOpsAcc09.png)
-
-2. Finally Download the imported project to your VM and Extract the Zip File
-    
-    ![](images/Req-Clone-Source.png)
-
-1. Navigate to http://portal.azure.com open the shell command and create a storage using powershell
-    
-    ![](images/Pre-ShellAzure.png)
-
-2. In powershell mode, select upload file
-    
-    ![](images/Pre-ShellUploadFile.png)
-
-3. Select the file ``IaC-AzureEnvCreation.ps1``
-    
-    ![](images/Pre-ShellUploadFileSelectFile.png)
-
-4. Type CD in command prompt and hit enter
-
-5. type ./IaC-AzureEnvCreation.ps1 and hit enter
-    
-    ![](images/Pre-ShellRunScript.png)
-
-> Attention
-> 
-> **This process will take about 15 minutes, don't refresh your screen!**
-
-6. Take note of the resource names when the script end his execution
-    
-    ![](images/Pre-ShellRunScriptResult.png)
-
+    > Optional
+    > 
+    > You can navigate to https://portal.azure.com in the resource group DevSecOps-xxxxx-RG and see all resources created to the workshop
+    >
+    > Explore as well the new repo created in your Organization-->Project named MyHealthClinicSecDevOps-Public in https://dev.azure.com 
