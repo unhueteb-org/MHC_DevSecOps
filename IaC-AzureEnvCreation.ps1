@@ -94,9 +94,15 @@ az appservice plan create -g $rgname -n $appServicePlan --is-linux --number-of-w
 az webapp create --resource-group $rgname --plan $appServicePlan --name $app --deployment-container-image-name bkimminich/juice-shop
 
 Write-Host "======================================================================================================`n
-Please take note of the following ressource names, they will be used in the next steps `n
+Please take note of the following ressource names, they will be used in the next labs `n
 ======================================================================================================
 			Azure Container Registry name : $($acrname).azurecr.io `n
 			SQL Server name : $($sqlsvname).database.windows.net `n
 			Azure Kubernetes Services name : $($aksname) `n
-			Resource Groupe name : $($rgname) `n"
+			Resource Groupe name : $($rgname) `n
+			`n
+			You'll be using the following commands in the Lab 1 `n
+			`n
+			az aks get-credentials --resource-group $($rgname) --name $($aksname) `n
+			az aks browse --resource-group $($rgname) --name $($aksname) `n
+			`n"
