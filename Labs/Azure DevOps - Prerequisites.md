@@ -32,7 +32,11 @@ DirectX, Hyper-V, Internet Explorer, Microsoft, Outlook, OneDrive, SQL Server, W
 <br><br>
 
 **Prerequisites**
-- Recomended a new @outlook or @hotmail account, e.g: mynameyyyymm@outlook.com
+
+- Edge Chromium or Chrome
+- Recomended a new @outlook or @hotmail account, e.g: DevSecOpsYourName@outlook.com at https://account.microsoft.com using a InPrivate/Incognito browser Window
+
+    ![](images/CreateOutlookAcc00.png)
 
 **Overview**
 In this pre-work module (lab 2 of 2) you will setup your `Azure DevOps` environment including the initial `Build Pipeline` and `Release Pipeline`.
@@ -52,48 +56,22 @@ In this pre-work module (lab 2 of 2) you will setup your `Azure DevOps` environm
     
     ![](images/CreateDevOpsAcc01.png)
 
-3. Navigate to https://azuredevopsdemogenerator.azurewebsites.net/ and Sign in with your new Account and Accept Terms
+3. In your new Organization, create a Personal Access Token ([PAT](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&viewFallbackFrom=vsts&tabs=preview-page#create-personal-access-tokens-to-authenticate-access))
     
-    ![](images/CreateDevOpsAcc02.png)
+    ![](images/CreateDevOpsAcc10.png)
+    ![](images/CreateDevOpsAcc11.png)
 
-4. Click `Choose template` and choose the following file and click ``Submit`` 
-    https://dev.azure.com/secureDevOpsDelivery/82dd0a19-ef30-4974-837a-b876e341813a/_apis/git/repositories/42215aa8-8ad3-4dbc-bd08-29ffc8c37e90/Items?path=%2FSecDevOpsLab.zip
-    
-   ![](images/CreateDevOpsAcc04.png)
+4. Name the Personal Access Token (PAT) as `DevSecOps`, select Full access and click `Create`
 
-5. Select your Organization and in the ``New Project Name`` type `SecDevOpsLab`, Verify extentions missing on this project as showed in the example
-    
-    ![](images/CreateDevOpsAcc03.png)
+   ![](images/CreateDevOpsAcc12.png)
 
 
-    **Example** ``Verify missing extentions`` **Replace Tokens**
-    a) Click on the missing extention and ``Get it Free``
-        
-        ![](images/CreateDevOpsAcc05.png)
+   > **Save your new token key in a notepad**
+   
+    ![](images/CreateDevOpsAcc13.png)
 
-    b) Select your organization and click ``Install``
-        
-        ![](images/CreateDevOpsAcc06.png)
+   > **Save your new token key in a notepad**
 
-6. Click ``Create Project`` and wait until the end of the process and click ``Navigate to project``
-    
-    ![](images/CreateDevOpsAcc07.png)
-
-7. Import de source code to your project
-    
-    ![](images/CreateDevOpsAcc08.png)
-
-    In the ``Clone URL *`` paste the following URL:
-    
-    https://SecureDevOpsDelivery@dev.azure.com/SecureDevOpsDelivery/MyHealthClinicSecDevOps-Public/_git/MyHealthClinicSecDevOps-Public
-    
-    In the name type ``MyHealthClinicSecDevOps-Public``
-    
-    ![](images/CreateDevOpsAcc09.png)
-
-8. Finally Download the imported project to your VM and Extract the Zip File
-    
-    ![](images/Req-Clone-Source.png)
 
 ## Get you free Azure Subscription
 
@@ -123,29 +101,32 @@ In this pre-work module (lab 2 of 2) you will setup your `Azure DevOps` environm
 
 ## Create the Infrastructure in Azure
 
-1. Navigate to http://portal.azure.com open the shell command and create a storage using powershell
+1. Run de following commands inside the VM on PowerShell:
     
-    ![](images/Pre-ShellAzure.png)
+    For the following command answer with A for `[A] Yes to All`
 
-2. In powershell mode, select upload file
-    
-    ![](images/Pre-ShellUploadFile.png)
+    >  Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser  
 
-3. Select the file ``IaC-AzureEnvCreation.ps1``
-    
-    ![](images/Pre-ShellUploadFileSelectFile.png)
+    >Invoke-WebRequest 'https://aka.ms/DevSecOpsSetupFile' -UseBasicParsing -OutFile .\IaC-AzureEnvCreation.ps1
+        
+    Type the following command and hit `Enter` follow the instructions.
 
-4. Type CD in command prompt and hit enter
+    >.\IaC-AzureEnvCreation.ps1
 
-5. type ./IaC-AzureEnvCreation.ps1 and hit enter
-    
-    ![](images/Pre-ShellRunScript.png)
+    **Keep the following information in a notepad, you will be asked for those values in the executing script.**
 
-> Attention
-> 
-> **This process will take about 15 minutes, don't refresh your screen!**
+    a) URL DevOps with your organization name (See following image)
+    b) Project Name (See following image)
+    c) Personal Token Access (PAT), obtained in the step 4 of **Create an Azure DevOps**
 
-6. Take note of the resource names when the script end his execution
-    
-    ![](images/Pre-ShellRunScriptResult.png)
+    ![](images/CreateDevOpsAcc15.png)
 
+    **The script will take about 15 minutes to execute.**
+
+    ![](images/CreateDevOpsAcc16.png)
+
+    > Optional
+    > 
+    > You can navigate to https://portal.azure.com in the resource group DevSecOps-xxxxx-RG and see all resources created to the workshop
+    >
+    > Explore as well the new repo created in your Organization-->Project named MyHealthClinicSecDevOps-Public in https://dev.azure.com 
