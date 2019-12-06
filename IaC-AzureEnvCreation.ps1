@@ -8,6 +8,7 @@ $sqlsvname =  "devsecops" + $unicstr + "db"
 $appServicePlan = "owasp" + $unicstr + "t10"
 $app = "owaspapp" + $unicstr + "t10"
 $repomyclinic = 'MyHealthClinicSecDevOps-Public'
+$keyvaultname = "devsecops" + $unicstr + "akv"
 
 Write-Host 'If you already executed this script, go to https://portal.azure.com and delete old resources first'
 Write-Host 'Delete as well DevSecOpsVariables on the Library in https://dev.azure.com'
@@ -53,6 +54,10 @@ az pipelines variable-group create --name 'DevSecOpsVariables' --variables ACR=$
 
 # Register the network provider
 az provider register --namespace Microsoft.Network
+
+# Create a Key Vault to store secrets
+az keyvault create --location eastus --name $keyvaultname --resource-group $rgname --sku standard
+az keyvault secret set --name SQLpassword --vault-name $keyvaultname --value P2ssw0rd1234
 
 # Create a ressource groupe
 az group create --name $rgname --location eastus
