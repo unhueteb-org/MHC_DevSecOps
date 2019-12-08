@@ -9,6 +9,7 @@ $appServicePlan = "owasp" + $unicstr + "t10"
 $app = "owaspapp" + $unicstr + "t10"
 $repomyclinic = 'MyHealthClinicSecDevOps-Public'
 $keyvaultname = "devsecops" + $unicstr + "akv"
+$sonarqaciname = "devsecops" + $unicstr + "snr"
 
 Write-Host 'If you already executed this script, go to https://portal.azure.com and delete old resources first'
 Write-Host 'Delete as well DevSecOpsVariables on the Library in https://dev.azure.com'
@@ -45,7 +46,7 @@ az repos import create --git-source-url 'https://SecureDevOpsDelivery@dev.azure.
 
 Write-Host 'Adding security extensions to your Azure DevOps'
 az devops extension install --extension-id 'AzSDK-task' --publisher-id 'azsdktm' --detect true
-az devops extension install --extension-id 'SonarCloud' --publisher-id 'SonarSource' --detect true
+az devops extension install --extension-id 'sonarqube' --publisher-id 'SonarSource' --detect true
 az devops extension install --extension-id 'replacetokens' --publisher-id 'qetza' --detect true
 az devops extension install --extension-id 'ws-bolt' --publisher-id 'whitesource' --detect true
 
@@ -93,6 +94,9 @@ az appservice plan create -g $rgname -n $appServicePlan --is-linux --number-of-w
 # Create service WebApp for OWASP top 10
 az webapp create --resource-group $rgname --plan $appServicePlan --name $app --deployment-container-image-name bkimminich/juice-shop
 
+# Create service SonarQube  in Azure Container Instances
+az container create -g $($rgname) --name $sonarqaciname --image sonarqube --ports 9000 --dns-name-label $sonarqaciname'dns' --cpu 2 --memory 3.5
+
 Write-Host "======================================================================================================`n
 Please take note of the following ressource names, they will be used in the next labs `n
 ======================================================================================================
@@ -103,6 +107,10 @@ Please take note of the following ressource names, they will be used in the next
 			`n
 			You'll be using the following commands in the Lab 1 `n
 			`n
+			SonarQube Instance: `n
+			http://$($sonarqaciname)dns.eastus.azurecontainer.io:9000 `n
+			`n
+			Azure Kubernetes Services instance: `n
 			az aks get-credentials --resource-group $($rgname) --name $($aksname) `n
 			az aks browse --resource-group $($rgname) --name $($aksname) `n
 			`n"
