@@ -212,7 +212,7 @@ triggered soon after the build completes successfully.
 
 ##### Task 1 : Import Release Pipeline 
 
-1.  Start by creating an empty release pipeline. Do not worry, this pipeline
+1.  Start by creating an empty release pipeline. Make sure you save the pipeline once you have created it. Do not worry, this pipeline
     will not be used. Instead we will be importing a pipeline from a
     JSON file.
 
