@@ -85,13 +85,13 @@ discover bug or vulnerability early in the process.
 
     ![](./images/Module4-AddSonarConfigurequalitygate.png)
 
-6. Let us add a condition to check for the number of bugs in the code. Click on `Add Condition` drop down, choose the value `Security Hotspots`.
+6. Let us add a condition to check for the number of bugs in the code. Click on `Add Condition` drop down, choose the value `Vulnerabilities`.
  
     > Set the `Operator` value to `is greater than` value to 1 and click on the `Add condition` button.
     
     ![](./images/Module4-AddSonarConfigure04.png)
 
-    > **Note**: This condition means that if the number of Security Hotspots in Sonar Analysis is greater than 0 (zero), then the quality gate will fail and this fails the VSTS build.
+    > **Note**: This condition means that if the number of Vulnerabilities in Sonar Analysis is greater than 1 , then the quality gate will fail and optionally this fails the DevOps build.
 
 7.  To enforce this quality gate for DevSecOps project, click on `All` under `Projects` section and select the project checkbox.
 
