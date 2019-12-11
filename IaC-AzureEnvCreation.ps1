@@ -10,14 +10,14 @@ $app = "owaspapp" + $unicstr + "t10"
 $repomyclinic = 'MyHealthClinicSecDevOps-Public'
 $keyvaultname = "devsecops" + $unicstr + "akv"
 $sonarqaciname = "devsecops" + $unicstr + "snr"
-Write-Host '\n'
+Write-Host ''
 Write-Host '---------------------------------------------------------------------------------------------------'
 Write-Host 'If you already executed this script, go to https://portal.azure.com and delete old resources first'
 Write-Host 'Delete as well DevSecOpsVariables on the Library in https://dev.azure.com'
 Write-Host '---------------------------------------------------------------------------------------------------'
-Write-Host '\n'
+Write-Host ''
 Write-Host 'A new window will open, please log in and go back here'
-Write-Host '\n'
+Write-Host ''
 Write-Host 'Login in with your new accounr e.g. DevSecOpsYourName@outlook.com'
 
 $output = az Login
