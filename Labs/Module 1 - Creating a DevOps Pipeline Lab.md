@@ -146,7 +146,10 @@ eventually publish artifacts for the Release Pipeline to consume.
 
     ![](./Images/Module1-SelectHostToBuild.png)
 
-7.  Select `Run services` task under the `Tasks` tab then select your
+7. Select the `MyHealthClinicSecDevOps-Public` as Repository in the `Get sources`
+
+    ![](./Images/Module1-NewImportBuildPipelineImported02.png)
+8.  Select `Run services` task under the `Tasks` tab then select your
     Azure subscription from the `Azure subscription` dropdown.
     Click `Authorize` to create a connexion with Azure.
 
@@ -166,7 +169,7 @@ eventually publish artifacts for the Release Pipeline to consume.
 
     ![](./Images/Module1-SelectSubscriptionRunService_Container.png)
 
-8.  Repeat the selection of the same values from the dropdown `Azure subscription` and `Azure Container Registry` for the `Build services`, `Push services` and `Lock services` as shown below.
+9.  Repeat the selection of the same values from the dropdown `Azure subscription` and `Azure Container Registry` for the `Build services`, `Push services` and `Lock services` as shown below.
 
     ![](./Images/Module1-SelectSubscriptionOtherServices.png)
 
@@ -183,7 +186,7 @@ eventually publish artifacts for the Release Pipeline to consume.
       |Push services                     |   Pushes the docker image [myhealth.web](http://myhealth.web/)  to Azure Container Registry. Push Docker images with multiple tags to an authenticated Docker Registry or Azure Container Registry and save the resulting repository image digest to a file.|
       |Lock Services                     |   Docker provides a way to lock container images. Once it is locked, nobody can delete it unknowingly, even if they try it shows an error.|
 
-9. Explore the Variable on the `Variables` tab and Check how to configuring the environment with Shared Virables.
+10. Explore the Variable on the `Variables` tab and Check how to configuring the environment with Shared Virables.
 
     ![](./Images/Module1-ReplaceVariablesServer.png)
 
