@@ -87,7 +87,7 @@ discover bug or vulnerability early in the process.
 
 6. Let us add a condition to check for the number of bugs in the code. Click on `Add Condition` drop down, choose the value `Security Hotspots`.
  
-    > Set the `Operator` value to `is greater than` value to 0 (zero) and click on the `Add condition` button.
+    > Set the `Operator` value to `is greater than` value to 1 and click on the `Add condition` button.
     
     ![](./images/Module4-AddSonarConfigure04.png)
 
@@ -271,17 +271,9 @@ Completion of the Module 1 Lab, Creating a DevOps Pipeline
 
     ![Az Configured](./images/Module4-AzSKConfigured.png)
 
-    > Note: In order to generate the **Autofix scripts** which are useful for Remediation include the ExtendedCommand variable in the pipeline with the switch -GenerateFixScript. To do this, select the `Variables` section under the release definition and add the `ExtendedCommand` variable with the switch `  -GenerateFixScript` as value.
+    > Note: In order to generate the **Autofix scripts** which are useful for Remediation include the ExtendedCommand variable in the pipeline with the switch -GenerateFixScript. Check the `Variables` section under the release definition the value `ExtendedCommand` variable with the switch `  -GenerateFixScript` as value.
 
-5.  From the `Variables` section under the release definition, verify
-    that the `ACR` and `SQLserver` variables are set.
-    Click `Save` to save the changes you made to the pipeline.
-
-    > Note: The Database Name is set to `mhcdb` and the Server Admin `Login is sqladmin` and `Password is P2ssw0rd1234` **but should not be exposed** as it is read by the Azure Key Vault task.
-
-    ![Config Variables](./images/Module4-ConfigVariables.png)
-
-6.  Run the Release pipeline by clicking on `Release` and
+5.  Click `Save` and Run the Release pipeline by clicking on `Release` and
     selecting `Create a new release`. Click on `Create`
 
 ### Exercise 2: Remediation
