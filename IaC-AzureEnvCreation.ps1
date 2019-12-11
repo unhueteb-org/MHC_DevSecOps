@@ -54,7 +54,7 @@ az devops extension install --extension-id 'replacetokens' --publisher-id 'qetza
 az devops extension install --extension-id 'ws-bolt' --publisher-id 'whitesource' --detect true
 
 #Creating variable group'
-az pipelines variable-group create --name 'DevSecOpsVariables' --variables ACR=$acrname'.azurecr.io' DatabaseName='mhcdb' ExtendedCommand='-GenerateFixScript' SQLpassword='P2ssw0rd1234' SQLserver=$appServicePlan'.database.windows.net' SQLuser='sqladmin' --project $devopsproject --authorize true
+az pipelines variable-group create --name 'DevSecOpsVariables' --variables ACR=$acrname'.azurecr.io' DatabaseName='mhcdb' ExtendedCommand='-GenerateFixScript' SQLpassword='P2ssw0rd1234' SQLserver=$sqlsvname'.database.windows.net' SQLuser='sqladmin' --project $devopsproject --authorize true
 
 # Register the network provider
 az provider register --namespace Microsoft.Network
