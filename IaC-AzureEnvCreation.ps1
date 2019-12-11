@@ -17,6 +17,7 @@ Write-Host '--------------------------------------------------------------------
 Write-Host '\n'
 Write-Host 'Login in with your new accounr e.g. DevSecOpsYourName@outlook.com'
 Write-Host 'Login in with your new accounr e.g. DevSecOpsYourName@outlook.com'
+
 $output = az Login
 if (!$output) {
     Write-Error "Error validating the credentials"
@@ -56,13 +57,13 @@ az pipelines variable-group create --name 'DevSecOpsVariables' --variables ACR=$
 # Register the network provider
 az provider register --namespace Microsoft.Network
 
-# Create a Key Vault to store secrets
-az keyvault create --location eastus --name $keyvaultname --resource-group $rgname --sku standard
-az keyvault secret set --name SQLpassword --vault-name $keyvaultname --value P2ssw0rd1234
-
 # Create a ressource groupe
 az group create --name $rgname --location eastus
 Write-Host 'Ressource groupe : ' + $rgname + ' created '
+
+# Create a Key Vault to store secrets
+az keyvault create --location eastus --name $keyvaultname --resource-group $rgname --sku standard
+az keyvault secret set --name SQLpassword --vault-name $keyvaultname --value P2ssw0rd1234
 
 az ad sp create-for-rbac --name $aksname
 
