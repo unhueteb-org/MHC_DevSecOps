@@ -70,7 +70,7 @@ az keyvault secret set --name SQLpassword --vault-name $keyvaultname --value P2s
 az ad sp create-for-rbac --name $aksname
 
 # Create AKS Service
-az aks create --resource-group $rgname --name $aksname --enable-addons monitoring --kubernetes-version 1.12.7 --generate-ssh-keys --location eastus --disable-rbac
+az aks create --resource-group $rgname --name $aksname --enable-addons monitoring --kubernetes-version 1.15.5 --generate-ssh-keys --location eastus --disable-rbac
 Write-Host 'Azure Kubernetes Service : ' + $aksname + ' created '
 
 # Create ACR service
