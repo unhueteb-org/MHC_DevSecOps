@@ -158,7 +158,7 @@ eventually publish artifacts for the Release Pipeline to consume.
     a.  You will be prompted to authorize this connection with Azure
         credentials. Disable pop-up blocker in your browser if you see a
         blank screen after clicking the OK button, and please retry
-        step 6.
+        the step.
 
     b.  This creates an `Azure Resource Manager Service Endpoint`,
         which defines and secures a connection to a Microsoft Azure
@@ -186,7 +186,7 @@ eventually publish artifacts for the Release Pipeline to consume.
       |Push services                     |   Pushes the docker image [myhealth.web](http://myhealth.web/)  to Azure Container Registry. Push Docker images with multiple tags to an authenticated Docker Registry or Azure Container Registry and save the resulting repository image digest to a file.|
       |Lock Services                     |   Docker provides a way to lock container images. Once it is locked, nobody can delete it unknowingly, even if they try it shows an error.|
 
-10. Explore the Variable on the `Variables` tab and Check how to configuring the environment with Shared Virables.
+10. Explore the Variable on the `Variables` tab and Check how to configuring the environment with Shared Variables.
 
     ![](./Images/Module1-ReplaceVariablesServer.png)
 
@@ -223,7 +223,7 @@ triggered soon after the build completes successfully.
     ![Edit Release Pipeline](./Images/Module1-NewImportReleasePipeline_Empty01.png)
     ![Edit Release Pipeline](./Images/Module1-NewImportReleasePipeline_Empty02.png)
 
-1.  Navigate back to the `Release` section under `Pipelines` in the left
+2.  Navigate back to the `Release` section under `Pipelines` in the left
     navigation bar. Select New and Import Release Pipeline. Select the
     MyHealth.AKS.Release.json found in `"C:\Users\Student\MyHealth.AKS.Release.json"`
     from the local Cloned Drive 
@@ -234,7 +234,7 @@ triggered soon after the build completes successfully.
 
     ![](./Images/Module1-NewImportReleasePipeline_Copy.png)
 
-2.  Delete the previous created artifacts MyHealth.AKS.build and then click `+ Add` to add an artifact. Select MyHealth.AKS.build as `Source`, `Default version` should be `Latest` and Source.
+3.  Delete the previous created artifacts MyHealth.AKS.build and then click `+ Add` to add an artifact. Select MyHealth.AKS.build as `Source`, `Default version` should be `Latest` and Source.
 
     ![](./Images/Module1-NewImportReleasePipelineSelectHost.png)
 
@@ -242,19 +242,19 @@ triggered soon after the build completes successfully.
 
     ![](./Images/Module1-NewImportReleasePipelineSelectHost02.png)
 
-3.  Click on the `Tasks-->Dev` tab and select `DB deployment`.
+4.  Click on the `Tasks-->Dev` tab and select `DB deployment`.
 
     > Make sure that the agents selected for each task is a `Hosted Agents (windows 2019)`.
 
     ![](./Images/Module1-NewImportReleasePipelineConfigureTask.png)
  
-4.  In the `Dev` stage, under the `DB deployment` phase, click on
+5.  In the `Dev` stage, under the `DB deployment` phase, click on
     the `Execute Azure SQL: DacpacTask` task. Under `Azure Service Connection Type`, select from the drop down `Azure Resource Manager`. Under `Azure Subscription`, select your Azure
     subscription.
 
     ![](./Images/Module1-NewImportReleasePipelineConfigureDB.png)
 
-5.  Under the AKS deployment phase, for the Create Deployments &
+6.  Under the AKS deployment phase, for the Create Deployments &
     Services in AKS task, update the following fields based on the
     resources you created in the preparation lab:
 
@@ -303,7 +303,7 @@ triggered soon after the build completes successfully.
         This secret will be used for authorization while pulling
         myhealth.web image from the Azure Container Registry.
 
-6. Explore the Variable on the `Variables` tab and Check how to configuring the environment with Shared Virables.
+7. Explore the Variable on the `Variables` tab and Check how to configuring the environment with Shared Variables.
 
     ![](./Images/Module1-ReplaceVariablesServer.png)
 
@@ -366,6 +366,7 @@ balancer in the front-end and Redis cache in the back-end.
     commands to see the pods running in AKS:
 
     > If you didn't close the powershel windows, skip the next 2 steps
+    > and commands for the step c and 8 are in the output powershell
     
     a.  Type `az login` in the command
         prompt and press Enter. Authenticate yourself by entering your
