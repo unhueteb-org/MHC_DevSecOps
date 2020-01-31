@@ -127,7 +127,9 @@ In this pre-work module (lab 2 of 2) you will setup your `Azure DevOps` environm
     ![](images/CreateDevOpsAcc15.png)
 
     **The script will take about 15 minutes to execute.**
-
+    **If any task fails during the execution of the script, delete the newly created resource groups and run the script again**
+    **Script failures typically use red lettering unless you changed the CLI color scheme***
+     
     ![](images/CreateDevOpsAcc16.png)
 
     > Optional
