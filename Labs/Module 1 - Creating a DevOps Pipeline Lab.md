@@ -303,7 +303,7 @@ triggered soon after the build completes successfully.
         This secret will be used for authorization while pulling
         myhealth.web image from the Azure Container Registry.
 
-7. Explore the Variable on the `Variables` tab and Check how to configuring the environment with Shared Variables.
+7. Explore the Variable on the `Variables` tab and Check how to configuring the environment with Shared Variables (if not linked link the `DevSecOpsVariables` to it).
 
     ![](./Images/Module1-ReplaceVariablesServer.png)
 
