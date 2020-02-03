@@ -310,8 +310,6 @@ triggered soon after the build completes successfully.
     > Variables in this pipeline are not Hard-coded, those Variables. 
     > come from the menu Library, save your Pipeline before to open the Library.
 
-   ![](./Images/Module1-ReplaceVariablesServer_Save.png)
-
     > Note: The Database Name is set to mhcdb and the Server Admin Login is sqladmin and Password is P2ssw0rd1234. <-How’s that for security!
 
     ![](./Images/Module1-NewImportBuildPipelineImportedConfigureVariableServer.png)
