@@ -128,6 +128,8 @@ eventually publish artifacts for the Release Pipeline to consume.
     ![Edit Release Pipeline](./Images/Module1-NewImportBuildPipeline_Empty_03.png)
     ![Edit Release Pipeline](./Images/Module1-NewImportBuildPipeline_Empty_04.png)
 
+    > Save this Pipeline as is
+
 2.  Navigate back to the `Pipelines\\Builds` area in Azure DevOps by selecting `Pipeline.`
 
 3.  Under `Pipelines\\Builds`, select `New\\Import a pipeline`
