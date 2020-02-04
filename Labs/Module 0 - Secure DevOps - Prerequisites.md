@@ -106,7 +106,7 @@ In this pre-work module (lab 2 of 2) you will setup your `Azure DevOps` environm
 
 ## Create the Infrastructure in Azure
 
-1. Run de following commands inside the VM on PowerShell:
+1. Run the following commands inside the VM on PowerShell:
     
     > For the following command answer with A for `[A] Yes to All`
 
