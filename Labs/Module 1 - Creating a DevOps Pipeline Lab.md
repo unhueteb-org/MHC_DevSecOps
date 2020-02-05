@@ -280,7 +280,7 @@ triggered soon after the build completes successfully.
 
     ![](./Images/Module1-NewImportBuildPipelineImportedConfigAKS.png)
 
-    > Dont forget Expand the `Secrets` area and use the following values for your
+    > Don't forget Expand the `Secrets` area and use the following values for your
     `Secrets` section `except for the Azure Container Registry`.
     Here you will use the name you defined in the prerequisites
     document.
