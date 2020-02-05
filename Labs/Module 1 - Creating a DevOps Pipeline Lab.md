@@ -240,7 +240,7 @@ triggered soon after the build completes successfully.
 
     ![](./Images/Module1-NewImportReleasePipelineSelectHost.png)
 
-    > Activate the `Continuous Deployment trigger` button as followws
+    > Activate the `Continuous Deployment trigger` button as follows
 
     ![](./Images/Module1-NewImportReleasePipelineSelectHost02.png)
 
