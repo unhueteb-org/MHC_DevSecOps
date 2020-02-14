@@ -49,6 +49,7 @@ SQL Server Express is required to host the database.
 #### Task 1: Open the Web Project
 
   1. Double click the Contoso Times.sln located in \\Users\\Student\\source\\repos\\Contoso Times.
+     If the directory is not present, please clone project from https://dev.azure.com//securedevopsdelivery//_git/ContosoTimes
 
   2. Start the Web Application without debug
 
