@@ -20,6 +20,10 @@ Write-Host ''
 Write-Host 'A new window will open, please log in and go back here'
 Write-Host ''
 Write-Host 'Login in with your new accounr e.g. DevSecOpsYourName@outlook.com'
+Write-Host 'in case of error in az cli, please re-install and re-open using the following command'
+Write-Host ''
+Write-Host "Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi; Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi'"
+
 
 $output = az Login
 if (!$output) {
@@ -72,8 +76,8 @@ $env:AZURE_DEVOPS_EXT_PAT = $devopspat
 az devops configure --defaults project=$devopsproject organization=$devopsservice
 	
 Write-Host 'Downloading required lab files'
-Invoke-WebRequest 'https://dev.azure.com/secureDevOpsDelivery/82dd0a19-ef30-4974-837a-b876e341813a/_apis/git/repositories/42215aa8-8ad3-4dbc-bd08-29ffc8c37e90/items?path=%2FBuildScripts%2FMyHealth.AKS.build.json&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&resolveLfs=true&%24format=octetStream&api-version=5.0&download=true' -UseBasicParsing -OutFile 'C:\Users\Student\MyHealth.AKS.build.json'
-Invoke-WebRequest 'https://dev.azure.com/secureDevOpsDelivery/82dd0a19-ef30-4974-837a-b876e341813a/_apis/git/repositories/42215aa8-8ad3-4dbc-bd08-29ffc8c37e90/items?path=%2FReleaseScripts%2FMyHealth.AKS.Release.json&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&resolveLfs=true&%24format=octetStream&api-version=5.0&download=true' -UseBasicParsing -OutFile 'C:\Users\Student\MyHealth.AKS.Release.json'
+Invoke-WebRequest 'https://dev.azure.com/secureDevOpsDelivery/82dd0a19-ef30-4974-837a-b876e341813a/_apis/git/repositories/42215aa8-8ad3-4dbc-bd08-29ffc8c37e90/items?path=%2FBuildScripts%2FMyHealth.AKS.build.json&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&resolveLfs=true&%24format=octetStream&api-version=5.0&download=true' -UseBasicParsing -OutFile '.\MyHealth.AKS.build.json'
+Invoke-WebRequest 'https://dev.azure.com/secureDevOpsDelivery/82dd0a19-ef30-4974-837a-b876e341813a/_apis/git/repositories/42215aa8-8ad3-4dbc-bd08-29ffc8c37e90/items?path=%2FReleaseScripts%2FMyHealth.AKS.Release.json&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&resolveLfs=true&%24format=octetStream&api-version=5.0&download=true' -UseBasicParsing -OutFile '.\MyHealth.AKS.Release.json'
 
 #Create a Repo for the Labs
 Write-Host 'Importing labs to your Azure DevOps'
@@ -84,10 +88,10 @@ Write-Host 'Running .....'
 az repos import create --git-source-url 'https://SecureDevOpsDelivery@dev.azure.com/SecureDevOpsDelivery/MyHealthClinicSecDevOps-Public/_git/MyHealthClinicSecDevOps-Public' --detect true --project $devopsproject --repository $repomyclinic
 
 Write-Host 'Adding security extensions to your Azure DevOps'
-az devops extension install --extension-id 'AzSDK-task' --publisher-id 'azsdktm' --detect true
-az devops extension install --extension-id 'sonarqube' --publisher-id 'SonarSource' --detect true
-az devops extension install --extension-id 'replacetokens' --publisher-id 'qetza' --detect true
-az devops extension install --extension-id 'ws-bolt' --publisher-id 'whitesource' --detect true
+az devops extension install --extension-name 'AzSDK-task' --publisher-name 'azsdktm' --detect true
+az devops extension install --extension-name 'sonarqube' --publisher-name 'SonarSource' --detect true
+az devops extension install --extension-name 'replacetokens' --publisher-name 'qetza' --detect true
+az devops extension install --extension-name 'ws-bolt' --publisher-name 'whitesource' --detect true
 
 #Creating variable group'
 az pipelines variable-group create --name 'DevSecOpsVariables' --variables ACR=$acrname'.azurecr.io' DatabaseName='mhcdb' ExtendedCommand='-GenerateFixScript' SQLpassword='P2ssw0rd1234' SQLserver=$sqlsvname'.database.windows.net' SQLuser='sqladmin' --project $devopsproject --authorize true
@@ -170,27 +174,26 @@ if ($appexists -eq $false)
 }
 
 # Create service SonarQube  in Azure Container Instances
-Write-Host 'Running .....' 
+Write-Host 'Running SonarQube .....' 
 if ($snrexists -eq $false)
 {
     az container create -g $($rgname) --name $sonarqaciname --image sonarqube --ports 9000 --dns-name-label $sonarqaciname'dns' --cpu 2 --memory 3.5
     Write-Host 'Azure Web App SonarQube : ' + $sonarqaciname + ' created '
 }
 
-Write-Host "======================================================================================================`n
-Please take note of the following ressource names, they will be used in the next labs `n
-======================================================================================================
-			Azure Container Registry name : $($acrname).azurecr.io `n
-			SQL Server name : $($sqlsvname).database.windows.net `n
-			Azure Kubernetes Services name : $($aksname) `n
-			Resource Groupe name : $($rgname) `n
-			`n
-			You'll be using the following commands in the Lab 1 `n
-			`n
-			SonarQube Instance: `n
-			http://$($sonarqaciname)dns.eastus.azurecontainer.io:9000 `n
+Write-Host "====================================================================================================== 
+Please take note of the following ressource names, they will be used in the next labs 
+====================================================================================================== 
+			Azure Container Registry name : $($acrname).azurecr.io 
+			SQL Server name : $($sqlsvname).database.windows.net
+			Azure Kubernetes Services name : $($aksname) 
+			Resource Groupe name : $($rgname) 
+			
+			You'll be using the following commands in the Lab 1 
+			
+			SonarQube Instance: 
+			http://$($sonarqaciname)dns.eastus.azurecontainer.io:9000 
 			`n
 			Azure Kubernetes Services instance: `n
-			az aks get-credentials --resource-group $($rgname) --name $($aksname) `n
-			az aks browse --resource-group $($rgname) --name $($aksname) `n
-			`n"
+			az aks get-credentials --resource-group $($rgname) --name $($aksname) 
+			az aks browse --resource-group $($rgname) --name $($aksname)"
