@@ -84,7 +84,7 @@ Write-Host 'Importing labs to your Azure DevOps'
 az repos create --name $repomyclinic --project $devopsproject
 
 #Import the repo from Demo Website
-Write-Host 'Running .....' 
+Write-Host 'Running importing Lab to student repo ......' 
 az repos import create --git-source-url 'https://SecureDevOpsDelivery@dev.azure.com/SecureDevOpsDelivery/MyHealthClinicSecDevOps-Public/_git/MyHealthClinicSecDevOps-Public' --detect true --project $devopsproject --repository $repomyclinic
 
 Write-Host 'Adding security extensions to your Azure DevOps'
@@ -180,6 +180,11 @@ if ($snrexists -eq $false)
     az container create -g $($rgname) --name $sonarqaciname --image sonarqube --ports 9000 --dns-name-label $sonarqaciname'dns' --cpu 2 --memory 3.5
     Write-Host 'Azure Web App SonarQube : ' + $sonarqaciname + ' created '
 }
+
+# Create service SonarQube  in Azure Container Instances
+Write-Host 'Installing Kubernetes cli .....' 
+az aks install-cli
+$env:path += ';C:\Users\Student\.azure-kubectl'
 
 Write-Host "====================================================================================================== 
 Please take note of the following ressource names, they will be used in the next labs 
