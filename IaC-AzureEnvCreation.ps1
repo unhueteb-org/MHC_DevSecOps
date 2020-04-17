@@ -124,7 +124,7 @@ if ($aksexists -eq $false)
     Write-Host 'Service Principal Name : created '
 
     # Create AKS Service
-    az aks create --resource-group $rgname --name $aksname --enable-addons monitoring --kubernetes-version 1.15.5 --generate-ssh-keys --location $location --disable-rbac --service-principal $spn.appId --client-secret $spn.password
+    az aks create --resource-group $rgname --name $aksname --enable-addons monitoring --kubernetes-version 1.15.10 --generate-ssh-keys --location $location --disable-rbac --service-principal $spn.appId --client-secret $spn.password
     Write-Host 'Azure Kubernetes Service : ' + $aksname + ' created '
 }
 
