@@ -2,6 +2,8 @@
 $WarningPreference = "SilentlyContinue"
 $location = 'eastus'
 
+cd c:\users\student
+
 $unicstr = -join ((97..122) | Get-Random -Count 5 | % {[char]$_})
 $aksexists = $false
 $acrexists = $false
