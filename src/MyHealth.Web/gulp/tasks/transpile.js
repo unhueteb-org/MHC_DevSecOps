@@ -24,7 +24,7 @@ module.exports = function (gulp) {
         // if options.concat is set to true destination has been set by gulp-concat
         console.log(options);
         var destination = options.concat === true ? '.' : options.target;
-        transpileBase(options)
+        return transpileBase(options)
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(destination));
     }
@@ -32,17 +32,17 @@ module.exports = function (gulp) {
     function transpileMin(gulp, options) {
         // if options.concat is set to true destination has been set by gulp-concat
         var destination = options.concat === true ? '.' : options.target;
-        transpileBase(options)
+        return transpileBase(options)
             .pipe(uglify())
             .pipe(sourcemaps.write('.'))
             .pipe(gulp.dest(destination));
     }
 
     gulp.task('babel', function () {
-        transpile(gulp, options.site);
+        return transpile(gulp, options.site);
     });
 
     gulp.task('babel:min', function () {
-        transpileMin(gulp, options.siteMin);
+        return transpileMin(gulp, options.siteMin);
     });
 };

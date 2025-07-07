@@ -6,7 +6,7 @@ var rename = require('gulp-rename');
 
 module.exports = function (gulp) {
     gulp.task('sass', function () {
-        gulp.src(paths.source.sass.files)
+        return gulp.src(paths.source.sass.files)
             .pipe(sourcemaps.init())
             .pipe(sass().on('error', sass.logError))
             .pipe(sourcemaps.write('.'))
@@ -14,7 +14,7 @@ module.exports = function (gulp) {
     });
 
     gulp.task('sass:min', function () {
-        gulp.src(paths.source.sass.files)
+        return gulp.src(paths.source.sass.files)
              .pipe(rename({
                  suffix: '.min'
              }))
@@ -26,6 +26,6 @@ module.exports = function (gulp) {
     });
 
     gulp.task('sass:watcher', function () {
-        gulp.watch(paths.source.sass.files, ['sass']);
+        return gulp.watch(paths.source.sass.files, gulp.series('sass'));
     });
 };

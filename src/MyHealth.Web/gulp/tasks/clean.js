@@ -27,6 +27,6 @@ module.exports = function (gulp) {
         rimraf(paths.dest.images, cb);
     });
 
-    gulp.task('clean:lib', ['clean:lib:js', 'clean:lib:css']);
-    gulp.task('clean', ['clean:images', 'clean:js', 'clean:css', 'clean:lib', 'clean:app']);
+    gulp.task('clean:lib', gulp.parallel('clean:lib:js', 'clean:lib:css'));
+    gulp.task('clean', gulp.parallel('clean:images', 'clean:js', 'clean:css', 'clean:lib', 'clean:app'));
 };
