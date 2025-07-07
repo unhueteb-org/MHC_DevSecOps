@@ -10,6 +10,6 @@ require('./gulp/tasks/app')(gulp);
 require('./gulp/tasks/sass')(gulp);
 require('./gulp/tasks/copy')(gulp);
 
-gulp.task('build', ['copy', 'babel', 'app', 'lib', 'sass']);
-gulp.task('build:min', ['copy', 'babel:min', 'app:min', 'lib:min', 'sass:min']);
-gulp.task('default', ['build', 'build:min']);
+gulp.task('build', gulp.series(gulp.parallel('copy', 'babel', 'app', 'lib', 'sass')));
+gulp.task('build:min', gulp.series(gulp.parallel('copy', 'babel:min', 'app:min', 'lib:min', 'sass:min')));
+gulp.task('default', gulp.series(gulp.parallel('build', 'build:min')));

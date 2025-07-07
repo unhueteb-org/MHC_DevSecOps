@@ -9,6 +9,6 @@ module.exports = function (gulp) {
             .pipe(eslint.format());
     });
 
-    gulp.task('lint', ['lint:es6']);
+    gulp.task('lint', gulp.parallel('lint:es6'));
 
 };
