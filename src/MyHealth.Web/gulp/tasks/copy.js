@@ -1,4 +1,5 @@
 ﻿var paths = require('../options/paths');
+var mainBowerFiles = require('main-bower-files');
 
 module.exports = function (gulp) {
     gulp.task('copy:img', function () {
